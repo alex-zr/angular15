@@ -1,3 +1,4 @@
+const c = 3;
 var todoStore = require('./stores/todoStore');
 
 // Styles

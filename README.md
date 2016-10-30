@@ -11,6 +11,7 @@ Implementation details: http://gaui.is/angular-1-5-todo-app
 Regards to [TodoMVC](http://todomvc.com)
 
 npm install
+npm i babel-loader@5
 npm install webpack webpack-dev-server -g
 webpack
 
