@@ -9,7 +9,7 @@ angular.module('app', ['ui.router'])
         resolve: { mydata: (Service) => Service.getData() },
         component: 'helloWorld'
       })
-      .state({  name: 'home',  url: '/home',  component: 'home' })
+      .state('home', {  name: 'home',  url: '/home',  component: 'home' })
     })
   .component("helloWorld",{
       templateUrl: "templates/helloWorld.html",
