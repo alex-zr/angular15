@@ -17,63 +17,20 @@ myApp.config(function($stateProvider) {
       // templateUrl: 'templates/helloWorld.html'
     });
 
-    // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
-/*    .state('about', {
-      url: '/'
-      // we'll get to this in a bit
-    });*/
-  // An array of state definitions
-/*  var states = [
-    {
-      name: 'hello',
-      url: '/hello',
-      // Using component: instead of template:
-      component: 'hello'
-    },
+})
+  .component('about', {
+    template:  '<h3>Its the UI-Router<br>Hello Solar System app!</h3>'
+  })
+  .component('hello', {
+    template:  '<h3>{{$ctrl.greeting}} solar sytem!</h3>' +
+    '<button ng-click="$ctrl.toggleGreeting()">toggle greeting</button>',
 
-    {
-      name: 'about',
-      url: '/about',
-      component: 'about'
-    },
+    controller: function() {
+      this.greeting = 'hello';
 
-    {
-      name: 'people',
-      url: '/people',
-      component: 'people',
-      // This state defines a 'people' resolve
-      // It delegates to the PeopleService to HTTP fetch (async)
-      // The people component receives this via its `bindings: `
-      resolve: {
-        people: function(PeopleService) {
-          return PeopleService.getAllPeople();
-        }
-      }
-    },
-
-    {
-      name: 'person',
-      // This state takes a URL parameter called personId
-      url: '/people/{personId}',
-      component: 'person',
-      // This state defines a 'person' resolve
-      // It delegates to the PeopleService, passing the personId parameter
-      resolve: {
-        person: function(PeopleService, $transition$) {
-          return PeopleService.getPerson($transition$.params().personId);
-        }
+      this.toggleGreeting = function() {
+        this.greeting = (this.greeting == 'hello') ? 'whats up' : 'hello'
       }
     }
-  ]
+  });
 
-  // Loop over the state definitions and register them
-  states.forEach(function(state) {
-    $stateProvider.state(state);
-  });*/
-
-});
-
-// To account for plunker embeds timing out, preload the async data
-myApp.run(function($http) {
-  $http.get('data/people.json', { cache: true });
-});

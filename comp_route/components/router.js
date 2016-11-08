@@ -3,27 +3,14 @@
  */
 var routerApp = angular.module('app', ['ui.router']);
 
-routerApp
-  .component("hello",{
-    templateUrl: "templates/helloWorld.html",
-    bindings: { name: '@' }
-  })
-  .component("home",{
-    templateUrl: "templates/home.html",
-    bindings: { name: '@' }
-  });
-
-routerApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-
-  // $locationProvider.html5Mode(false);
-  $urlRouterProvider.otherwise('/home');
+routerApp .config(function($stateProvider) {
 
   $stateProvider
 
   // HOME STATES AND NESTED VIEWS ========================================
-    .state('home', {
-      url: '/home',
-      component: 'home',
+    .state('about', {
+      url: '/about',
+      component: 'about',
       // templateUrl: 'templates/home.html'
     })
 
@@ -31,12 +18,22 @@ routerApp.config(function($stateProvider, $urlRouterProvider, $locationProvider)
       url: '/hello',
       component: 'hello',
       // templateUrl: 'templates/helloWorld.html'
-    })
-
-    // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
-    .state('about', {
-      url: '/'
-      // we'll get to this in a bit
     });
-});
+
+})
+  .component('about', {
+    template:  '<h3>Its the UI-Router<br>Hello Solar System app!</h3>'
+  })
+  .component('hello', {
+    template:  '<h3>{{$ctrl.greeting}} solar sytem!</h3>' +
+    '<button ng-click="$ctrl.toggleGreeting()">toggle greeting</button>',
+
+    controller: function() {
+      this.greeting = 'hello';
+
+      this.toggleGreeting = function() {
+        this.greeting = (this.greeting == 'hello') ? 'whats up' : 'hello'
+      }
+    }
+  });
 
