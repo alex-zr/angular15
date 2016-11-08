@@ -5,11 +5,17 @@
 angular.module('app', ['ui.router'])
   .config(function($stateProvider) {
     $stateProvider
-      .state('foo', {
+      .state({
+        name: 'hello',
+        url: '/hello',
         resolve: { mydata: (Service) => Service.getData() },
         component: 'helloWorld'
       })
-      .state('home', {  name: 'home',  url: '/home',  component: 'home' })
+      .state({
+        name: 'home',
+        url: '/home',
+        component: 'home'
+      })
     })
   .component("helloWorld",{
       templateUrl: "templates/helloWorld.html",

@@ -23,14 +23,14 @@ routerApp.config(function($stateProvider, $urlRouterProvider, $locationProvider)
   // HOME STATES AND NESTED VIEWS ========================================
     .state('home', {
       url: '/home',
-      // component: 'hello'
-      templateUrl: 'templates/home.html'
+      component: 'home',
+      // templateUrl: 'templates/home.html'
     })
 
     .state('hello', {
       url: '/hello',
-      // component: 'home'
-      templateUrl: 'templates/helloWorld.html'
+      component: 'hello',
+      // templateUrl: 'templates/helloWorld.html'
     })
 
     // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================

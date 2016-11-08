@@ -2,8 +2,28 @@ var myApp = angular.module('hellosolarsystem', ['ui.router']);
 
 myApp.config(function($stateProvider) {
 
+  $stateProvider
+
+  // HOME STATES AND NESTED VIEWS ========================================
+    .state('about', {
+      url: '/about',
+      component: 'about',
+      // templateUrl: 'templates/home.html'
+    })
+
+    .state('hello', {
+      url: '/hello',
+      component: 'hello',
+      // templateUrl: 'templates/helloWorld.html'
+    });
+
+    // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
+/*    .state('about', {
+      url: '/'
+      // we'll get to this in a bit
+    });*/
   // An array of state definitions
-  var states = [
+/*  var states = [
     {
       name: 'hello',
       url: '/hello',
@@ -49,7 +69,8 @@ myApp.config(function($stateProvider) {
   // Loop over the state definitions and register them
   states.forEach(function(state) {
     $stateProvider.state(state);
-  });
+  });*/
+
 });
 
 // To account for plunker embeds timing out, preload the async data
