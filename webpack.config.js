@@ -39,7 +39,7 @@ module.exports = {
           path.resolve(__dirname, "node_modules")
         ]
 /*        include: [
-          path.resolve(__dirname, "src"),
+          path.resolve(__dirname, "app/src"),
           path.resolve(__dirname, "app/test")
         ]*/
       }
@@ -49,7 +49,7 @@ module.exports = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'test')
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
     }),
     new CopyWebpackPlugin([
       { from: 'index.html' }
@@ -58,6 +58,7 @@ module.exports = {
   ],
 
   devtool: "source-map"
+  // watch: true
   // devtool: "inline-source-map"
 
 };

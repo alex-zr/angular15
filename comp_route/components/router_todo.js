@@ -1,15 +1,12 @@
-const c = 6;
-var todoStore = require('./stores/todoStore');
-
-// Styles
-require('./index.less');
-
+/**
+ * Created by al1 on 07.11.16.
+ */
 angular.module('todoApp', ['ui.router'])
-  .service('todoStore', todoStore)
+  // .service('todoStore', todoStore)
   .config(config);
 
 function config($stateProvider, $httpProvider,
-  $urlRouterProvider, $locationProvider) {
+                $urlRouterProvider, $locationProvider) {
 
   $urlRouterProvider.otherwise('/');
 
@@ -49,5 +46,3 @@ function config($stateProvider, $httpProvider,
       }
     });
 }
-
-require('./components');

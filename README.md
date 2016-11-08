@@ -13,5 +13,5 @@ Regards to [TodoMVC](http://todomvc.com)
 npm install
 npm i babel-loader@5
 npm install webpack webpack-dev-server -g
-webpack
+webpack or webpack --watch
 
